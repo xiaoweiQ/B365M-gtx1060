@@ -1,0 +1,494 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ACPI</key>
+	<dict>
+		<key>SSDT</key>
+		<dict>
+			<key>DropOem</key>
+			<false/>
+			<key>Generate</key>
+			<dict>
+				<key>PluginType</key>
+				<true/>
+			</dict>
+			<key>NoOemTableId</key>
+			<false/>
+		</dict>
+		<key>AutoMerge</key>
+		<true/>
+		<key>DSDT</key>
+		<dict>
+			<key>Patches</key>
+			<array>
+				<dict>
+					<key>Find</key>
+					<data>X09TSQ==</data>
+					<key>Replace</key>
+					<data>WE9TSQ==</data>
+					<key>Disabled</key>
+					<false/>
+					<key>Comment</key>
+					<string>_OSI to XOSI</string>
+				</dict>
+				<dict>
+					<key>Find</key>
+					<data>X0RTTQ==</data>
+					<key>Replace</key>
+					<data>WERTTQ==</data>
+					<key>Disabled</key>
+					<false/>
+					<key>Comment</key>
+					<string>_DSM to XDSM</string>
+				</dict>
+				<dict>
+					<key>Find</key>
+					<data>RUhDMQ==</data>
+					<key>Replace</key>
+					<data>RUgwMQ==</data>
+					<key>Disabled</key>
+					<false/>
+					<key>Comment</key>
+					<string>change EHC1 to EH01</string>
+				</dict>
+				<dict>
+					<key>Find</key>
+					<data>RUhDMg==</data>
+					<key>Replace</key>
+					<data>RUgwMg==</data>
+					<key>Disabled</key>
+					<false/>
+					<key>Comment</key>
+					<string>change EHC2 to EH02</string>
+				</dict>
+				<dict>
+					<key>Find</key>
+					<data>R0ZYMA==</data>
+					<key>Replace</key>
+					<data>SUdQVQ==</data>
+					<key>Disabled</key>
+					<true/>
+					<key>Comment</key>
+					<string>change GFX0 to IGPU</string>
+				</dict>
+				<dict>
+					<key>Find</key>
+					<data>X1ExMgBwCg==</data>
+					<key>Replace</key>
+					<data>WFExMgBwCg==</data>
+					<key>Disabled</key>
+					<false/>
+					<key>Comment</key>
+					<string>change Method (_Q12, 0, N) to XQ12 in DSDT</string>
+				</dict>
+			</array>
+			<key>Fixes</key>
+			<dict>
+				<key>AddDTGP</key>
+				<true/>
+				<key>FixHPET</key>
+				<true/>
+			</dict>
+			<key>DropOEM_DSM</key>
+			<false/>
+		</dict>
+		<key>FixHeaders</key>
+		<true/>
+	</dict>
+	<key>Boot</key>
+	<dict>
+		<key>NoEarlyProgress</key>
+		<true/>
+		<key>DefaultVolume</key>
+		<string>LastBootedVolume</string>
+		<key>Arguments</key>
+		<string>kext-dev-mode=1 dart=0 nv_disable=1 -cdfon -igfxnohdmi</string>
+		<key>NeverHibernate</key>
+		<true/>
+		<key>Secure</key>
+		<false/>
+		<key>Timeout</key>
+		<integer>3</integer>
+	</dict>
+	<key>GUI</key>
+	<dict>
+		<key>Theme</key>
+		<string>SimpleThemeDark</string>
+		<key>Mouse</key>
+		<dict>
+			<key>Enabled</key>
+			<false/>
+		</dict>
+		<key>Hide</key>
+		<array>
+			<string>Preboot</string>
+			<string>Recovery</string>
+		</array>
+		<key>Custom</key>
+		<dict>
+			<key>Entries</key>
+			<array>
+				<dict>
+					<key>Hidden</key>
+					<true/>
+					<key>Ignore</key>
+					<false/>
+					<key>FullTitle</key>
+					<string>UEFI internal</string>
+					<key>Disabled</key>
+					<true/>
+					<key>Type</key>
+					<string>Other</string>
+					<key>NoCaches</key>
+					<false/>
+					<key>VolumeType</key>
+					<string>Internal</string>
+				</dict>
+			</array>
+		</dict>
+		<key>Scan</key>
+		<dict>
+			<key>Entries</key>
+			<true/>
+			<key>Tool</key>
+			<false/>
+			<key>Legacy</key>
+			<false/>
+		</dict>
+		<key>ScreenResolution</key>
+		<string>1920x1080</string>
+	</dict>
+	<key>Devices</key>
+	<dict>
+		<key>SetIntelBacklight</key>
+		<true/>
+		<key>FakeID</key>
+		<dict>
+			<key>#IntelGFX</key>
+			<string>0x04128086</string>
+		</dict>
+		<key>Audio</key>
+		<dict>
+			<key>ResetHDA</key>
+			<true/>
+			<key>Inject</key>
+			<integer>2</integer>
+		</dict>
+		<key>SetIntelMaxBacklight</key>
+		<true/>
+		<key>UseIntelHDMI</key>
+		<false/>
+		<key>Properties</key>
+		<dict>
+			<key>PciRoot(0x0)/Pci(0x1c,0x0)</key>
+			<dict>
+				<key>AAPL,slot-name</key>
+				<string>Internal</string>
+				<key>device_type</key>
+				<string>PCI bridge</string>
+				<key>model</key>
+				<string>8 Series/C220 Series Chipset Family PCI Express Root Port #1</string>
+			</dict>
+			<key>PciRoot(0x0)/Pci(0x1c,0x2)</key>
+			<dict>
+				<key>AAPL,slot-name</key>
+				<string>Internal</string>
+				<key>device_type</key>
+				<string>PCI bridge</string>
+				<key>model</key>
+				<string>8 Series/C220 Series Chipset Family PCI Express Root Port #3</string>
+			</dict>
+			<key>PciRoot(0x0)/Pci(0x1b,0x0)</key>
+			<dict>
+				<key>layout-id</key>
+				<data>QQAAAA==</data>
+				<key>model</key>
+				<string>VIA VT1802_1</string>
+				<key>hda-gfx</key>
+				<string>onboard-1</string>
+				<key>AAPL,slot-name</key>
+				<string>Internal</string>
+				<key>device_type</key>
+				<string>Audio device</string>
+			</dict>
+			<key>PciRoot(0x0)/Pci(0x14,0x0)</key>
+			<dict>
+				<key>AAPL,slot-name</key>
+				<string>Internal</string>
+				<key>device_type</key>
+				<string>USB controller</string>
+				<key>model</key>
+				<string>8 Series/C220 Series Chipset Family USB xHCI</string>
+			</dict>
+			<key>PciRoot(0x0)/Pci(0x1f,0x3)</key>
+			<dict>
+				<key>AAPL,slot-name</key>
+				<string>Internal</string>
+				<key>device_type</key>
+				<string>SMBus</string>
+				<key>model</key>
+				<string>8 Series/C220 Series Chipset Family SMBus Controller</string>
+			</dict>
+			<key>PciRoot(0x0)/Pci(0x1f,0x2)</key>
+			<dict>
+				<key>AAPL,slot-name</key>
+				<string>Internal</string>
+				<key>device_type</key>
+				<string>SATA controller</string>
+				<key>model</key>
+				<string>8 Series/C220 Series Chipset Family 6-port SATA Controller 1 [AHCI mode]</string>
+			</dict>
+			<key>PciRoot(0x0)/Pci(0x1f,0x0)</key>
+			<dict>
+				<key>AAPL,slot-name</key>
+				<string>Internal</string>
+				<key>device_type</key>
+				<string>ISA bridge</string>
+				<key>model</key>
+				<string>Z87 Express LPC Controller</string>
+			</dict>
+			<key>PciRoot(0x0)/Pci(0x1c,0x2)/Pci(0x0,0x0)</key>
+			<dict>
+				<key>AAPL,slot-name</key>
+				<string>Internal</string>
+				<key>device_type</key>
+				<string>Network controller</string>
+				<key>model</key>
+				<string>BCM94352HMB 802.11ac Wireless Network Adapter</string>
+			</dict>
+			<key>PciRoot(0x0)/Pci(0x1c,0x3)/Pci(0x0,0x1)</key>
+			<dict>
+				<key>AAPL,slot-name</key>
+				<string>Internal</string>
+				<key>device_type</key>
+				<string>Ethernet controller</string>
+				<key>model</key>
+				<string>RTL8111/8168/8411 PCI Express Gigabit Ethernet Controller</string>
+			</dict>
+			<key>PciRoot(0x0)/Pci(0x1a,0x0)</key>
+			<dict>
+				<key>AAPL,slot-name</key>
+				<string>Internal</string>
+				<key>device_type</key>
+				<string>USB controller</string>
+				<key>model</key>
+				<string>8 Series/C220 Series Chipset Family USB EHCI #2</string>
+			</dict>
+			<key>PciRoot(0x0)/Pci(0x2,0x0)</key>
+			<dict>
+				<key>#AAPL00,override-no-edid</key>
+				<data></data>
+				<key>AAPL,slot-name</key>
+				<string>Internal</string>
+				<key>framebuffer-patch-enable</key>
+				<data>AQAAAA==</data>
+				<key>framebuffer-unifiedmem</key>
+				<data>AAAAgA==</data>
+				<key>AAPL,ig-platform-id</key>
+				<data>AAAWBA==</data>
+				<key>model</key>
+				<string>Intel HD Graphics 4600</string>
+				<key>disable-external-gpu</key>
+				<data>AQAAAA==</data>
+				<key>device-id</key>
+				<data>EgQAAA==</data>
+				<key>device_type</key>
+				<string>VGA compatible controller</string>
+			</dict>
+			<key>PciRoot(0x0)/Pci(0x1,0x0)</key>
+			<dict>
+				<key>AAPL,slot-name</key>
+				<string>Internal</string>
+				<key>device_type</key>
+				<string>PCI bridge</string>
+				<key>model</key>
+				<string>Xeon E3-1200 v3/4th Gen Core Processor PCI Express x16 Controller</string>
+			</dict>
+			<key>PciRoot(0x0)/Pci(0x0,0x0)</key>
+			<dict>
+				<key>AAPL,slot-name</key>
+				<string>Internal</string>
+				<key>device_type</key>
+				<string>Host bridge</string>
+				<key>model</key>
+				<string>Xeon E3-1200 v3/4th Gen Core Processor DRAM Controller</string>
+			</dict>
+			<key>PciRoot(0x0)/Pci(0x16,0x0)</key>
+			<dict>
+				<key>AAPL,slot-name</key>
+				<string>Internal</string>
+				<key>device_type</key>
+				<string>Communication controller</string>
+				<key>model</key>
+				<string>8 Series/C220 Series Chipset Family MEI Controller #1</string>
+			</dict>
+			<key>PciRoot(0x0)/Pci(0x1c,0x3)</key>
+			<dict>
+				<key>AAPL,slot-name</key>
+				<string>Internal</string>
+				<key>device_type</key>
+				<string>PCI bridge</string>
+				<key>model</key>
+				<string>8 Series/C220 Series Chipset Family PCI Express Root Port #4</string>
+			</dict>
+			<key>PciRoot(0x0)/Pci(0x1d,0x0)</key>
+			<dict>
+				<key>AAPL,slot-name</key>
+				<string>Internal</string>
+				<key>device_type</key>
+				<string>USB controller</string>
+				<key>model</key>
+				<string>8 Series/C220 Series Chipset Family USB EHCI #1</string>
+			</dict>
+		</dict>
+		<key>USB</key>
+		<dict>
+			<key>AddClockID</key>
+			<true/>
+			<key>FixOwnership</key>
+			<true/>
+			<key>Inject</key>
+			<true/>
+		</dict>
+	</dict>
+	<key>Graphics</key>
+	<dict>
+		<key>#ig-platform-id</key>
+		<string>0x0a260006</string>
+		<key>Inject</key>
+		<dict>
+			<key>ATI</key>
+			<false/>
+			<key>Intel</key>
+			<false/>
+			<key>NVidia</key>
+			<false/>
+		</dict>
+	</dict>
+	<key>KernelAndKextPatches</key>
+	<dict>
+		<key>AppleRTC</key>
+		<true/>
+		<key>KernelPm</key>
+		<true/>
+		<key>KextsToPatch</key>
+		<array>
+			<dict>
+				<key>Find</key>
+				<data>QVBQTEUgU1NEAA==</data>
+				<key>Name</key>
+				<string>IOAHCIBlockStorage</string>
+				<key>Replace</key>
+				<data>AAAAAAAAAAAAAA==</data>
+				<key>Disabled</key>
+				<false/>
+			</dict>
+		</array>
+		<key>KernelToPatch</key>
+		<array>
+			<dict>
+				<key>Find</key>
+				<data>ILniAAAADzA=</data>
+				<key>Replace</key>
+				<data>ILniAAAAkJA=</data>
+				<key>Disabled</key>
+				<false/>
+				<key>Comment</key>
+				<string>MSR 0xE2 _xcpm_idle instant reboot(c) Pike R. Alpha</string>
+			</dict>
+			<dict>
+				<key>Find</key>
+				<data>AIoChMB0</data>
+				<key>Replace</key>
+				<data>AIoChMDr</data>
+				<key>Disabled</key>
+				<false/>
+				<key>Comment</key>
+				<string>Disable panic kext logging on Release kernel</string>
+				<key>MatchOS</key>
+				<string>10.14.4,10.14.5</string>
+			</dict>
+			<dict>
+				<key>Find</key>
+				<data>Y29tLmFwcGxlAF9fa2VybmVsX18A</data>
+				<key>Replace</key>
+				<data>bm90LmFwcGxlAF9fa2VybmVsX18A</data>
+				<key>Disabled</key>
+				<false/>
+				<key>Comment</key>
+				<string>https://github.com/acidanthera/bugtracker/issues/513</string>
+			</dict>
+		</array>
+		<key>ForceKextsToLoad</key>
+		<array>
+			<string>\System\Library\Extensions\IONetworkingFamily.kext</string>
+		</array>
+		<key>DellSMBIOSPatch</key>
+		<false/>
+		<key>KernelLapic</key>
+		<true/>
+	</dict>
+	<key>RtVariables</key>
+	<dict>
+		<key>BooterConfig</key>
+		<string>0x28</string>
+		<key>CsrActiveConfig</key>
+		<string>0x67</string>
+	</dict>
+	<key>SMBIOS</key>
+	<dict>
+		<key>FirmwareFeatures</key>
+		<string>0xE80FE137</string>
+		<key>Board-ID</key>
+		<string>Mac-189A3D4F975D5FFC</string>
+		<key>FirmwareFeaturesMask</key>
+		<string>0xFF1FFF3F</string>
+		<key>BoardVersion</key>
+		<string>1.0</string>
+		<key>Manufacturer</key>
+		<string>Apple Inc.</string>
+		<key>ChassisType</key>
+		<string>0x0A</string>
+		<key>BiosVersion</key>
+		<string>MBP111.88Z.F000.B00.2006101815</string>
+		<key>BoardManufacturer</key>
+		<string>Apple Inc.</string>
+		<key>ChassisAssetTag</key>
+		<string>MacBook-Aluminum</string>
+		<key>PlatformFeature</key>
+		<string>0x02</string>
+		<key>Family</key>
+		<string>MacBook Pro</string>
+		<key>ChassisManufacturer</key>
+		<string>Apple Inc.</string>
+		<key>BoardSerialNumber</key>
+		<string>C17306270GUFH311F</string>
+		<key>BiosVendor</key>
+		<string>Apple Inc.</string>
+		<key>ProductName</key>
+		<string>MacBookPro11,1</string>
+		<key>SmUUID</key>
+		<string>A011A2B3-D20A-4BF4-9416-6B572C02258F</string>
+		<key>Mobile</key>
+		<true/>
+		<key>BoardType</key>
+		<integer>10</integer>
+		<key>EfiVersion</key>
+		<string>162.0.0.0.0</string>
+		<key>SerialNumber</key>
+		<string>C17K7HZ4FH00</string>
+		<key>LocationInChassis</key>
+		<string>Part Component</string>
+		<key>BiosReleaseDate</key>
+		<string>06/10/2020</string>
+		<key>Version</key>
+		<string>1.0</string>
+	</dict>
+	<key>SystemParameters</key>
+	<dict>
+		<key>InjectKexts</key>
+		<string>Yes</string>
+	</dict>
+</dict>
+</plist>
